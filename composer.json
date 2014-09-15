@@ -1,0 +1,12 @@
+{
+    "name": "openconext/stoker-metadata",
+    "description": "PHP library for accessing OpenConext stoker metadata",
+    "license": "APACHE-2",
+    "authors": [
+        {
+            "name": "Boy Baukema",
+            "email": "boy.baukema@flex.surfnet.nl"
+        }
+    ],
+    "require": {}
+}
