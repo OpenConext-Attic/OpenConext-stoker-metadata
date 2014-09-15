@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenConext\Component\StokerMetadata\Stoker\MetadataIndex;
+namespace OpenConext\Component\StokerMetadata\MetadataIndex;
 
 class Entity
 {

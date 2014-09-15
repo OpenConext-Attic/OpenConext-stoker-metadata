@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenConext\Component\StokerMetadata\Stoker;
+namespace OpenConext\Component\StokerMetadata;
 
 /**
  * Load and save the Entity XML.

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenConext\Component\StokerkMetadata\Stoker;
+namespace OpenConext\Component\StokerMetadata;
 
 use DateTime;
 use OpenConext\Component\StokerMetadata\Stoker\MetadataIndex\Entity;
