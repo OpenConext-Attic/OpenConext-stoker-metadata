@@ -4,6 +4,7 @@ namespace OpenConext\Component\StokerkMetadata\Stoker;
 
 use DateTime;
 use OpenConext\Component\StokerMetadata\Stoker\MetadataIndex\Entity;
+use RuntimeException;
 
 class MetadataIndex
 {
@@ -92,7 +93,7 @@ class MetadataIndex
     /**
      * @param $path
      * @return null|MetadataIndex
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
     public static function load($path)
     {
@@ -102,17 +103,17 @@ class MetadataIndex
         }
 
         if (!is_readable($file)) {
-            throw new \RuntimeException("File at '$file' exists but is unreadable?");
+            throw new RuntimeException("File at '$file' exists but is unreadable?");
         }
 
         $jsonString = file_get_contents($file);
         if (!$jsonString) {
-            throw new \RuntimeException("Unable to load metadataIndex file from '$file'");
+            throw new RuntimeException("Unable to load metadataIndex file from '$file'");
         }
 
         $decoded = json_decode($jsonString, true);
         if (!$decoded) {
-            throw new \RuntimeException("Unable to decode '$jsonString' as valid JSON.");
+            throw new RuntimeException("Unable to decode '$jsonString' as valid JSON.");
         }
 
         $validUntil = null;
@@ -142,13 +143,13 @@ class MetadataIndex
     private static function fromJsonDateTime($jsonData, $propertyName)
     {
         if (!isset($jsonData[$propertyName])) {
-            throw new \RuntimeException('MetadataIndex is corrupt? Unable to find processed time.');
+            throw new RuntimeException('MetadataIndex is corrupt? Unable to find processed time.');
         }
         $encodedProperty = $jsonData[$propertyName];
 
         $processed = date_create($encodedProperty);
         if (!$processed) {
-            throw new \RuntimeException(
+            throw new RuntimeException(
                 "MetadataIndex is corrupt? Unable to parse processed time '$encodedProperty' as a date time."
             );
         }
