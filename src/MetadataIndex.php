@@ -6,6 +6,10 @@ use DateTime;
 use OpenConext\Component\StokerMetadata\Stoker\MetadataIndex\Entity;
 use RuntimeException;
 
+/**
+ * Class MetadataIndex
+ * @package OpenConext\Component\StokerkMetadata\Stoker
+ */
 class MetadataIndex
 {
     const FILENAME = 'metadata.index.json';
@@ -39,6 +43,13 @@ class MetadataIndex
      */
     private $validUntil = null;
 
+    /**
+     * @param $path
+     * @param DateTime $cacheUntil
+     * @param DateTime $processed
+     * @param DateTime $validUntil
+     * @param array $entities
+     */
     public function __construct(
         $path,
         DateTime $cacheUntil,
@@ -53,16 +64,28 @@ class MetadataIndex
         $this->entities = $entities;
     }
 
+    /**
+     * @param string $atDateTime
+     * @return bool
+     */
     public function isCacheExpired($atDateTime = 'now')
     {
         return $this->cacheUntil < new DateTime($atDateTime);
     }
 
+    /**
+     * @param string $atDateTime
+     * @return bool
+     */
     public function isValidityExpired($atDateTime = 'now')
     {
         return $this->validUntil !== null && $this->validUntil < new DateTime($atDateTime);
     }
 
+    /**
+     * @param Entity $entity
+     * @return $this
+     */
     public function addEntity(Entity $entity)
     {
         $this->entities[$entity->entityId] = $entity;
@@ -140,6 +163,12 @@ class MetadataIndex
         );
     }
 
+    /**
+     * @param $jsonData
+     * @param $propertyName
+     * @return DateTime
+     * @throws \RuntimeException
+     */
     private static function fromJsonDateTime($jsonData, $propertyName)
     {
         if (!isset($jsonData[$propertyName])) {
@@ -160,11 +189,14 @@ class MetadataIndex
     {
         file_put_contents(
             $this->file,
-            json_encode(array(
-                'processed' => $this->processed->format('c'),
-                'entities'  => $this->entities,
-                'cacheUntil' => $this->cacheUntil->format('c'),
-                'validUntil' => $this->validUntil ? $this->validUntil->format('c') : null,
-            )));
+            json_encode(
+                array(
+                    'processed' => $this->processed->format('c'),
+                    'entities'  => $this->entities,
+                    'cacheUntil' => $this->cacheUntil->format('c'),
+                    'validUntil' => $this->validUntil ? $this->validUntil->format('c') : null,
+                )
+            )
+        );
     }
 }

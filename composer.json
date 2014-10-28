@@ -7,5 +7,15 @@
     },
     "require": {
         "php": ">=5.3.3"
+    },
+    "authors": [
+        {
+            "name": "Boy Baukema",
+            "email": "boy.baukema@flex.surfnet.nl"
+        }
+    ],
+    "require-dev": {
+        "ibuildings/qa-tools": "~1.1",
+        "sebastian/phpcpd": "dev-master"
     }
 }
