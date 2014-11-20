@@ -4,7 +4,7 @@ namespace OpenConext\Component\StokerMetadata\MetadataIndex;
 
 /**
  * Class Entity
- * @package OpenConext\Component\StokerMetadata\Stoker\MetadataIndex
+ * @package OpenConext\Component\StokerMetadata\MetadataIndex
  */
 class Entity
 {

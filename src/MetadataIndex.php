@@ -3,12 +3,12 @@
 namespace OpenConext\Component\StokerMetadata;
 
 use DateTime;
-use OpenConext\Component\StokerMetadata\Stoker\MetadataIndex\Entity;
+use OpenConext\Component\StokerMetadata\MetadataIndex\Entity;
 use RuntimeException;
 
 /**
  * Class MetadataIndex
- * @package OpenConext\Component\StokerkMetadata\Stoker
+ * @package OpenConext\Component\StokerkMetadata
  */
 class MetadataIndex
 {
