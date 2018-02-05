@@ -1,4 +1,4 @@
 OpenConext-stoker-metadata
 ==========================
 
-PHP library for accessing OpenConext stoker metadata
+This repository is no longer in use. OpenConext no longer supports the stoker backend.
