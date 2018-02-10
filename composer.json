@@ -1,7 +1,7 @@
 {
     "name": "openconext/stoker-metadata",
     "description": "PHP library for accessing OpenConext stoker metadata",
-    "license": "APACHE-2",
+    "license": "Apache-2.0",
     "autoload": {
         "psr-4": { "OpenConext\\Component\\StokerMetadata\\": "src/" }
     },
